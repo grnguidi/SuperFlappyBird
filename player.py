@@ -29,40 +29,44 @@ class Player(pygame.sprite.Sprite):
     def get_direction(self):
         return self.direction
 
+    def death_animation(self):
+        self.speed = 0
+
     def update(self):    
-        #keys
-        mousebutton = pygame.mouse.get_pressed()
+        #check death
+        if self.dead == False:
+            #keys
+            mousebutton = pygame.mouse.get_pressed()
 
-        #flap
-        if pygame.mouse.get_pressed()[0] == 1 and self.flap_possible == True and self.dead == False:
-            self.flap_possible = False
-            self.direction.y = self.flap
-            self.flap_sound.play()
-            self.play_drift = True
-            if self.speed < 2:
-                self.speed += 0.5
-            elif self.speed > 2:
-                self.speed = 2
-            if self.player_angle < 25:
-                self.player_angle += 12
-                if self.speed < 2: # after drift
-                    self.player_angle += 20
+            #flap
+            if pygame.mouse.get_pressed()[0] == 1 and self.flap_possible == True and self.dead == False:
+                self.flap_possible = False
+                self.direction.y = self.flap
+                self.flap_sound.play()
+                self.play_drift = True
+                if self.speed < 2:
+                    self.speed += 0.5
+                elif self.speed > 2:
+                    self.speed = 2
+                if self.player_angle < 25:
+                    self.player_angle += 12
+                    if self.speed < 2: # after drift
+                        self.player_angle += 20
 
-        if pygame.mouse.get_pressed()[0] == 0:
-            self.flap_possible = True
+            if pygame.mouse.get_pressed()[0] == 0:
+                self.flap_possible = True
 
-        if self.rect.y < 50:
-            self.flap_possible = False
+            if self.rect.y < 50:
+                self.flap_possible = False
 
-        #moviment
-        self.direction.y += self.gravity
-        self.rect.y += self.direction.y          
-        if self.player_angle > -25:
-            self.player_angle -= 0.5
-            if self.speed < 2: # during drift
-                self.player_angle -= 10 - self.speed 
+            #moviment
+            self.direction.y += self.gravity
+            self.rect.y += self.direction.y          
+            if self.player_angle > -25:
+                self.player_angle -= 0.5
+                if self.speed < 2: # during drift
+                    self.player_angle -= 10 - self.speed 
 
-    
+        
         self.image = pygame.transform.rotate(self.player_sprite, self.player_angle)
 
-        #check death

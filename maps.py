@@ -1,4 +1,6 @@
 # player = P, pipe = X, block = O, nest = number (of the other level)
+
+
 level1_map = [
 '        X    X    X                       X    X     X     X       ',
 '        X    X    X                       X    X     X     X       ',
@@ -12,7 +14,8 @@ level1_map = [
 '        X    X    X         O   OOOOO          X     X     X                        ',
 '        X    X    X                       X    X     X     X                             ',
 '        X    X    X    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO                 ',
-'        X    X    X2222OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO                   ']
+'        X    X    X2222OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO                   ',
+'        X    X    XOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO                   ']
 
 level2_map = [
 'OOOOOOOOOOOOOOOOOOOOOOOOOO',
@@ -27,12 +30,15 @@ level2_map = [
 'O                   3    O',
 'O                   X    O',
 'O                   X    O',
+'OOOOOOOOOOOOOOOOOOOOOOOOOO',
 'OOOOOOOOOOOOOOOOOOOOXOOOOO']
 
 level3_map = [
-'                         ',
+'',
 ' P',
 'XXXXXXX',
+'         44',
+'',
 '',
 '',
 '',
@@ -42,3 +48,25 @@ level3_map = [
 '',
 '',
 '']
+
+level4_map = [
+' P',
+'             55      1111']
+
+level5_map = [
+' P           6666     11111']
+
+level6_map = [
+' P            7777     111111']
+
+level7_map = [
+' P            888     777777']
+
+level8_map = [
+' P              999999  222222']
+
+level9_map = [
+' P             0000000']
+
+level0_map = [
+' P          111111   222222   33333']
