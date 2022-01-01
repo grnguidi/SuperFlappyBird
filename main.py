@@ -1,8 +1,8 @@
-import pygame, sys, os
+import pygame, sys
+from pygame.constants import DOUBLEBUF, HWSURFACE, RESIZABLE, VIDEORESIZE
+
 from os import environ
 from sys import platform as sys_plat
-
-from pygame.constants import DOUBLEBUF, HWSURFACE, RESIZABLE, VIDEORESIZE
 from settings import *
 from maps import *
 from level import *
@@ -31,15 +31,15 @@ clock = pygame.time.Clock()
 game_scale = pygame.display.Info().current_h / screen_height #bug: screen scale issue
 
 if platform() == "android":
-    screen = pygame.display.set_mode((screen_width * game_scale, screen_height * game_scale), pygame.FULLSCREEN)
+    screen = pygame.display.set_mode((int(screen_width * game_scale), int(screen_height * game_scale)), pygame.FULLSCREEN)
 else:
-    screen = pygame.display.set_mode((screen_width * game_scale * 0.9, screen_height * game_scale * 0.9), HWSURFACE|DOUBLEBUF)
+    screen = pygame.display.set_mode((int(screen_width * game_scale * 0.9), int(screen_height * game_scale * 0.9)), HWSURFACE|DOUBLEBUF)
 
 pygame.display.set_caption("Super Flappy Bird")
 
-font_big = pygame.font.Font('fonts/font.ttf', int(32))
-font_medium = pygame.font.Font('fonts/font.ttf', int(24))
-font_small = pygame.font.Font('fonts/font.ttf', int(16))
+font_big = pygame.font.Font(path+'fonts/font.ttf', int(32))
+font_medium = pygame.font.Font(path+'fonts/font.ttf', int(24))
+font_small = pygame.font.Font(path+'fonts/font.ttf', int(16))
 
 
 # screens
@@ -54,7 +54,7 @@ def main():
     title_rect = title.get_rect()
     title_rect.center = (screen_width / 2, screen_height / 2)
 
-    text = font_medium.render('Press Space', True, 'green')
+    text = font_medium.render(' > click to Start <', True, 'green')
     text_rect = text.get_rect()
     text_rect.center = (screen_width / 2, title_rect.y + 70) 
 
@@ -77,8 +77,6 @@ def main():
         menu_screen.blit(text, text_rect)
 
         pygame.transform.scale(menu_screen, (screen.get_width(),screen.get_height()), menu_screen_scaled)
-
-        screen.fill('black')
         screen.blit(menu_screen_scaled, (0,0))
         pygame.display.update()
 
@@ -112,7 +110,6 @@ def game():
         level.run()
 
         pygame.transform.scale(game_screen, (screen.get_width(),screen.get_height()), game_screen_scaled)
-        screen.fill('black')
         screen.blit(game_screen_scaled, (0,0))
         
         pygame.display.update()

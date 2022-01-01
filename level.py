@@ -37,7 +37,6 @@ class Level():
 
                 if cell in ["1","2","3","4","5","6","7","8","9","0"]:
                     nest = Nest((x, y + (tile_size / 2)), tile_size)
-                    nest.image.fill('black')
                     nest.level = cell
                     self.nests.add(nest)
 
@@ -54,7 +53,6 @@ class Level():
         #check death
         if player.dead == True:
             player.drift_sound.stop()
-            player.hit_sound.play()
             player_x = 0
             direction_x = 0
             player.rect.y += player.gravity * 10
@@ -80,13 +78,16 @@ class Level():
                             player.speed = 0
                             player.player_angle = -45
                             player.dead = True
+                            player.hit_sound.play()
                     elif player.direction.y < 0:
                         player.rect.top = sprite.rect.bottom
                         player.direction.y = 0
                         player.dead = True
-                    elif player.direction.x > 0:
+                        player.hit_sound.play()
+                    if player.direction.x > 0 and player.dead ==  False and player.play_drift == True: #not dead by Y and not drifting
                         player.rect.right = sprite.rect.left
                         player.dead = True
+                        player.hit_sound.play()
             if player.rect.y > screen_height - 40:
                 player.speed = 0
                 player.dead = True

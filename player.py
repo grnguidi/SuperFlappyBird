@@ -10,11 +10,11 @@ class Player(pygame.sprite.Sprite):
         self.image = self.player_sprite.copy() #pygame.Surface((player_size, player_size))
         self.rect = self.image.get_rect(topleft = pos)
 
-        self.flap_sound = pygame.mixer.Sound("sounds/flap.wav")
+        self.flap_sound = pygame.mixer.Sound(path+"sounds/flap.wav")
         self.flap_sound.set_volume(0.5)
-        self.hit_sound = pygame.mixer.Sound("sounds/hit.wav")
+        self.hit_sound = pygame.mixer.Sound(path+"sounds/hit.wav")
         self.hit_sound.set_volume(0.5) 
-        self.drift_sound = pygame.mixer.Sound("sounds/drift.wav")
+        self.drift_sound = pygame.mixer.Sound(path+"sounds/drift.wav")
         self.drift_sound.set_volume(0.5)
 
         self.player_angle = 0
