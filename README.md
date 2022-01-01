@@ -1,4 +1,3 @@
-¨# SuperFlappyBird¨
 # SuperFlappyBird version alpha (0.1)
 Simple Flappy Bird like game in Python using PyGame for Linux, Windows, MacOS, and Android
 
@@ -47,7 +46,7 @@ buildozer init
 buildozer -v android debug deploy
 
 
-# Debbuging using ADB
+## Debbuging using ADB
 
 sudo apt install adb
 
