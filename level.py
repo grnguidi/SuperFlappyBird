@@ -135,8 +135,6 @@ class Level():
         self.nests.draw(self.display_surface)
         self.player.draw(self.display_surface)
 
-# Testing commit into dev
-# Testing Pull request
 
 
 
