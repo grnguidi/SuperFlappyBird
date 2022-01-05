@@ -2,6 +2,13 @@ from os import X_OK
 import pygame
 from settings import *
 
+if platform()=="android":
+    path="/data/data/org.game.supfb/files/app/"
+elif platform()=="linux":
+    path="./"
+else:
+    path="./"
+
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()

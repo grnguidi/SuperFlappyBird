@@ -19,7 +19,7 @@ def platform():
 
 if platform()=="android":
     path="/data/data/org.game.supfb/files/app/"
-elif platform()=="linux":
+else:
     path="./"
 
 pygame.mixer.pre_init(44100, -16, 2, 512)
