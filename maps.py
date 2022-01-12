@@ -5,17 +5,17 @@ level1_map = [
 '        X    X    X                       X    X     X     X       ',
 '        X    X    X                       X    X     X     X       ',
 '        X    X    X                       X    X     X     X       ',
-'        X    X    X                       X          X     X                 OOO               OOO                 OOO      ',
-'        X         X                       X            OOO X       ',
-'  P               X         OOO                            X                       OOOOOOOOOOOO       OOOO                                 O',
-'             X                                OOO                                                 ',
+'        X    X    X                       X          X     X                 CCC               CCC                 CCC      ',
+'        X      CC X                       X            CCC X       ',
+'  P               X         CCC                            X                       OOOOOOOOOOOO       OOOO                                 O',
+'     CCC     X                                OOO                                                 ',
 '             X                    O                                                                      O              OOO           O    O    O             ',
 '        X    X                                       X     X                OOO   ',
 '        X    X    X         O   OOOOO          X     X     X                        ',
-'        X    X    X                       X    X     X     X                             ',
+'        X    X    X                       X    X     X     X                                                                               333',
 '        X    X    X    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO                 ',
-'        X    X    X2222OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO                   ',
-'        X    X    XOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO                   ']
+'        X    X    X    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO                   ',
+'        X    X2222X    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO    OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO                   ']
 
 level2_map = [
 'OOOOOOOOOOOOOOOOOOOOOOOOOO',

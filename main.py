@@ -7,7 +7,6 @@ from settings import *
 from maps import *
 from level import *
 
-
 # enviroment settings
 def platform():
     if 'ANDROID_ARGUMENT' in environ:
@@ -94,6 +93,7 @@ def game():
     game_screen_scaled = pygame.Surface((screen.get_width(),screen.get_height()))
 
     level = Level(level1_map, game_screen)
+
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -105,9 +105,14 @@ def game():
                     sys.exit()
                 elif event.key == pygame.K_m or event.key == pygame.K_ESCAPE:
                     main()
+    
+        title = font_big.render('Score: ' + str(level.points), True, 'white')
+        title_rect = title.get_rect()
+        title_rect.center = (screen_width / 5, screen_height / 7)
 
         game_screen.fill('cyan')
         level.run()
+        game_screen.blit(title, title_rect)
 
         pygame.transform.scale(game_screen, (screen.get_width(),screen.get_height()), game_screen_scaled)
         screen.blit(game_screen_scaled, (0,0))

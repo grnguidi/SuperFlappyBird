@@ -1,9 +1,13 @@
+from random import randint
 import pygame
+from pygame import sprite
+from coins import Coin
 from settings import *
 from tiles import Tile
 from player import Player
 from maps import *
 from nest import Nest
+from clouds import Cloud
 
 class Level():
     def __init__(self, level_data, surface):
@@ -13,8 +17,12 @@ class Level():
 
     def setup_level(self, layout):
         self.tiles = pygame.sprite.Group()
+        self.bgclouds = pygame.sprite.Group()
+        self.fclouds = pygame.sprite.Group()
+        self.coins = pygame.sprite.Group()
         self.nests = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
+        self.points = 0
 
         for row_index, row in enumerate(layout):
             for col_index, cell in enumerate(row):
@@ -31,6 +39,12 @@ class Level():
                     tile.friction = 0.03
                     self.tiles.add(tile)
 
+                if cell == "C":
+                    sprite = Coin((x, y), tile_size)
+                    sprite.image.fill('gold')
+                    sprite.friction = 0
+                    self.coins.add(sprite)
+
                 if cell == "P":
                     player_sprite = Player((x, y))
                     self.player.add(player_sprite)
@@ -38,7 +52,21 @@ class Level():
                 if cell in ["1","2","3","4","5","6","7","8","9","0"]:
                     nest = Nest((x, y + (tile_size / 2)), tile_size)
                     nest.level = cell
+                    nest.image.fill('lemonchiffon')
                     self.nests.add(nest)
+        i = 0
+        while i < randint(10, 30):
+            x = randint(5, 300) * tile_size
+            y = randint(1, 6) * tile_size
+            sprite = Cloud((x, y), randint(1, 3))
+            sprite.image.fill('white')
+            if randint(1, 3) == 1:
+                self.bgclouds.add(sprite)
+            else:
+                self.fclouds.add(sprite)
+            i += 1 
+
+
 
 
     def run(self):
@@ -92,7 +120,15 @@ class Level():
                 player.speed = 0
                 player.dead = True
 
-            #check level change            
+            #check coin collect 
+
+            for sprite in self.coins.sprites():
+                if player.rect.colliderect(sprite.rect):
+                    self.points += 1
+                    sprite.kill()
+
+            #check level change    
+                    
             for sprite in self.nests.sprites():
                 if player.rect.colliderect(sprite.rect):
                     level_map = level1_map
@@ -128,13 +164,19 @@ class Level():
         #tiles
         self.tiles.update(camera_speed)
         self.nests.update(camera_speed)
+        self.fclouds.update(camera_speed * 1.3)
+        self.bgclouds.update(camera_speed * 0.7)
+        self.coins.update(camera_speed)
 
         #update screen
         #to do:background draw
+        self.bgclouds.draw(self.display_surface)
         self.tiles.draw(self.display_surface)
         self.nests.draw(self.display_surface)
+        self.coins.draw(self.display_surface)
         self.player.draw(self.display_surface)
-
+        self.fclouds.draw(self.display_surface)
+        
 
 
 
